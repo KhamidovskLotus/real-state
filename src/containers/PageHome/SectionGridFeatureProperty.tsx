@@ -1,0 +1,66 @@
+import { getProperty } from 'api/property';
+import NewPropertyCardH from 'components/NewPropertyCardH/NewPropertyCardH';
+import { DEMO_STAY_LISTINGS } from 'data/listings';
+import { StayDataType } from 'data/types';
+import { FC, ReactNode } from 'react';
+import { useQuery } from 'react-query';
+import { Link } from 'react-router-dom';
+import ButtonPrimary from 'shared/Button/ButtonPrimary';
+import { PaginationResult } from 'types/pagination';
+import { Property } from 'types/property';
+import HeaderFilter from './HeaderFilter';
+import PropertyCardH from 'components/PropertyCardH/PropertyCardH';
+import PropertyCard from 'components/PropertyCard/PropertyCard';
+
+// OTHER DEMO WILL PASS PROPS
+const DEMO_DATA: StayDataType[] = DEMO_STAY_LISTINGS.filter((_, i) => i < 8);
+//
+export interface SectionGridFeaturePropertyProps {
+  stayListings?: StayDataType[];
+  gridClass?: string;
+  heading?: ReactNode;
+  subHeading?: ReactNode;
+  headingIsCenter?: boolean;
+  tabs?: string[];
+}
+
+const SectionGridFeatureProperty: FC<SectionGridFeaturePropertyProps> = ({
+  stayListings = DEMO_DATA,
+  gridClass = '',
+  heading = 'Feature Your Listing',
+  subHeading = 'Get prime visibility and attract more buyers by placing your property at the top',
+  headingIsCenter,
+  tabs = ['New York', 'Tokyo', 'Paris', 'London'],
+}) => {
+  const renderCard = (property: Property, index: number) => {
+    return <PropertyCard  key={index} className="h-full" data={property} />;
+  };
+  const { data } = useQuery<PaginationResult<Property> | null, Error>(
+    'property',
+    () => getProperty({})
+  );
+
+  return (
+    <div className="nc-SectionGridFeatureProperty relative">
+      <div className="sm:block hidden">
+        <HeaderFilter
+          tabActive={'New York'}
+          subHeading={subHeading}
+          tabs={tabs}
+          heading={heading}
+          onClickTab={() => {}}
+          />
+      </div>
+      <div
+        className={`grid  sm:mx-0 mx-3 gap-6 md:gap-8 grid-cols-1 md:grid-cols-4 ${gridClass}`}
+      >
+        {data?.results.slice(0, 8).map(renderCard)}
+      </div>
+      <Link to="/property" className="flex mt-16 justify-center items-center">
+        <ButtonPrimary>Show me more</ButtonPrimary>
+      </Link>
+    </div>
+  );
+};
+
+export default SectionGridFeatureProperty;

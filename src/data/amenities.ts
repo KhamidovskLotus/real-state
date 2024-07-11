@@ -1,0 +1,66 @@
+export const PRIORITY_AMENITIES_LIST: string[] = [
+  'Dacha',
+  'Sport',
+  'Eco-friendly',
+  'Millionare',
+]
+
+export const TOP_AMENITIES_LIST:string[] = [
+  'Dacha', 'Sport', 'Eco-friendly', 'Millionare'
+]
+
+export const AMENITIES_LIST: string[] = [
+  'Dacha',
+  'Sport',
+  'Eco-friendly',
+  'Millionare',
+  'TV',
+  'Furniture',
+  'Air Conditioning',
+  'Kitchen Appliances',
+  'Laundry Facilities',
+  'Refrigerator',
+  'Dishwasher',
+  'High-speed Internet',
+  'Gym Access',
+  'Security Cameras',
+  'Open Pool',
+  'Balcony',
+  'Private Cinema',
+  'Kids Playground',
+  '24-hour Security',
+  'Basement',
+  'Backyard',
+  'Garden',
+  'Garage',
+  'Sauna',
+  'Intercom System',
+];
+
+export const AMENITIES_ICONS: Record<string, string> = {
+  Dacha: 'la-campground',
+  Sport: 'la-football-ball',
+  'Eco-friendly': 'la-tree',
+  Millionare: 'la-money-bill-wave',
+  TV: 'la-tv',
+  Furniture: 'la-couch',
+  'Air Conditioning': 'la-temperature-high',
+  'Kitchen Appliances': 'la-blender',
+  'Laundry Facilities': 'la-tshirt',
+  Refrigerator: 'la-cubes',
+  Dishwasher: 'la-pizza-slice',
+  'High-speed Internet': 'la-wifi',
+  'Gym Access': 'la-dumbbell',
+  'Security Cameras': 'la-video',
+  'Open Pool': 'la-swimming-pool',
+  Balcony: 'la-archway',
+  'Private Cinema': 'la-film',
+  'Kids Playground': 'la-child',
+  '24-hour Security': 'la-shield-alt',
+  Basement: 'la-house-damage',
+  Backyard: 'la-tree',
+  Garden: 'la-seedling',
+  Garage: 'la-car',
+  Sauna: 'la-hot-tub',
+  'Intercom System': 'la-phone-volume',
+};

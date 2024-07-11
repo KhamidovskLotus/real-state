@@ -1,0 +1,188 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@tailwind variants;
+
+@layer base {
+  [type="text"],
+  [type="email"],
+  [type="url"],
+  [type="password"],
+  [type="number"],
+  [type="date"],
+  [type="datetime-local"],
+  [type="month"],
+  [type="search"],
+  [type="tel"],
+  [type="time"],
+  [type="week"],
+  [multiple],
+  textarea,
+  select {
+    @apply bg-white dark:bg-neutral-900 border-neutral-200 dark:border-neutral-700 rounded-full focus:ring-indigo-500 
+    focus:border-indigo-500 block w-full sm:text-sm text-neutral-900 dark:text-neutral-200;
+  }
+}
+
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* React Select */
+.css-t3ipsp-control:hover {
+  /* border-color: rgba(var(--c-neutral-200), var(--tw-border-opacity))   !important; */
+  box-shadow: none !important;
+}
+.css-1p3m7a8-multiValue{
+  color: white !important;
+  background-color: #4F46E5 !important;
+  border-radius: 20px !important;
+}
+.css-wsp0cs-MultiValueGeneric{
+  /* color: white !important; */
+  padding-left: 10px !important;
+}
+.css-3w2yfm-ValueContainer {
+  gap: 2px !important
+  ;
+}
+
+.css-13cymwt-control {
+  background-color: inherit !important;
+}
+.css-qbdosj-Input{
+  color: inherit !important;
+}
+.css-1dimb5e-singleValue{
+  color: inherit !important;
+}
+.dark .css-1nmdiq5-menu{
+  background-color: rgba(var(--c-neutral-900), var(--tw-bg-opacity)) !important;
+}
+.dark .css-d7l1ni-option{
+  background-color: #817cff3c !important;
+}
+.css-d7l1ni-option{
+  background-color: #e6e5ff !important;
+}
+.css-b62m3t-container,  .css-1n6sfyn-MenuList, .css-1nmdiq5-menu,  .css-t3ipsp-control {
+  z-index: 1000 !important
+}
+.css-1nmdiq5-menu{
+  z-index: 1000!important;
+  background-color: white !important;
+}
+.css-13cymwt-control, .css-t3ipsp-control{
+  padding: 3px 6px;
+  /* color: inherit !important; */
+  border-radius: 1rem !important;
+  border-color: inherit !important;
+  background-color: inherit !important;
+}
+
+.dark .css-t3ipsp-control {
+  --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color) !important;
+  --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(3px + var(--tw-ring-offset-width)) var(--tw-ring-color) !important;
+  box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #00000000) !important;
+  --tw-ring-opacity: 0.25 !important;
+  --tw-ring-color: rgba(var(--c-primary-600), var(--tw-ring-opacity)) !important;
+  border-color: rgba(var(--c-primary-300), var(--tw-border-opacity)) !important;
+  --tw-border-opacity: 0.25;
+}
+
+.css-t3ipsp-control{
+  --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
+  --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(3px + var(--tw-ring-offset-width)) var(--tw-ring-color);
+  box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000) !important;
+  --tw-ring-color: rgba(var(--c-primary-200), var(--tw-ring-opacity));
+  --tw-ring-opacity: 0.5;
+  border-color: rgba(var(--c-primary-300), var(--tw-border-opacity)) !important;
+  --tw-border-opacity: 1;
+}
+.css-12a83d4-MultiValueRemove:hover {
+  border-color: inherit !important;
+  background-color: inherit !important;
+  color: inherit !important;
+}
+
+.css-12a83d4-MultiValueRemove{
+  border-radius: 100% !important;
+}
+
+.css-tr4s17-option {
+  background-color: #4F46E5 !important;
+}
+
+
+/* Development Mode Only */
+/* iframe
+{
+    display: none;
+} */
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.dark .filter-invert {
+  filter: brightness(0) invert(1);
+}
+
+#webpack-dev-server-client-overlay{
+  display: none;
+}
+
+/* Remove Google Translate Gadget */
+.goog-te-gadget{
+  display: none;
+}
+
+.skiptranslate{
+  display: none;
+}
+  
+body{
+  top: 0 !important;
+}
+
+#goog-gt-tt {
+  display: none !important;
+}
+
+body > div.VIpgJd-ZVi9od-aZ2wEe-wOHMyf {
+  display: none !important;
+}
+
+font {
+  background-color: transparent !important;
+  box-shadow: none !important;
+}
+
+.agreement-header {
+  font-weight: 600;
+}
+
+
+@media only screen and (max-width: 480px) {
+  .Toastify__toast-container--bottom-left, .Toastify__toast-container--bottom-center, .Toastify__toast-container--bottom-right {
+      bottom: 56px !important;
+  }
+}
+
+
+input, textarea {
+  font-size: 16px;
+}
+
+input {
+  font-size: 16px; 
+  transform-origin: left top; 
+}
