@@ -57,7 +57,7 @@ const SectionGridFeatureProperty: FC<SectionGridFeaturePropertyProps> = ({
         {data?.results.slice(0, 8).map(renderCard)}
       </div>
       <Link to="/property" className="flex mt-16 justify-center items-center">
-        <ButtonPrimary>Show me more</ButtonPrimary>
+        <ButtonPrimary>More</ButtonPrimary>
       </Link>
     </div>
   );

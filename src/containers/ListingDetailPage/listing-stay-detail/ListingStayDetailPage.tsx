@@ -148,9 +148,11 @@ const StayDetailPageContainer: FC<{}> = () => {
             </span>
           </span>
         </div>
+        <a href={`tel:${user.phone}`}>
         <ButtonPrimary className='sm:hidden block mb-5'>
           +{user.phone}
         </ButtonPrimary>
+        </a>
         {/* 5 */}
         <div className="w-full border-b border-neutral-100 dark:border-neutral-700" />
         {/* 6 */}

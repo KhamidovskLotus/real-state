@@ -2,13 +2,11 @@ import { getAgent } from 'api/agent';
 import api from 'api/api';
 import endpoints from 'api/endpoint';
 import { getPropertyById, PROPERTY_DUMMY_PHOTO_URL } from 'api/property';
-import axios from 'axios';
 import FileInput from 'components/FileInput/FileInput';
 import { AMENITIES_LIST, PRIORITY_AMENITIES_LIST } from 'data/amenities';
 import { PROPERTY_AVAILABILITY, PROPERTY_FOR, PROPERTY_TYPE } from 'data/property';
 import { UZBEKISTAN_CITIES, UZBEKISTAN_STATE } from 'data/uzbekistan';
 import { FC, useEffect, useState } from 'react';
-import { Helmet } from 'react-helmet';
 import { useForm } from 'react-hook-form';
 import { RxCross1 } from 'react-icons/rx';
 import { useMutation, useQuery } from 'react-query';
@@ -30,7 +28,7 @@ import { Property, PropertyImage } from 'types/property';
 import { SelectOption } from 'types/selectOption';
 import { getImageId, objectToFormData } from 'utils/objectUtil';
 import { stringToSelectOption } from 'utils/selectUtil';
-import { toastError, toastSuccess } from 'utils/toast';
+import {  toastSuccess } from 'utils/toast';
 
 export interface AddNewPropertyPageProps {
   className?: string;

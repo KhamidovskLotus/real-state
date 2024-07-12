@@ -50,7 +50,7 @@ const SectionGridAuthorBox: FC<SectionGridAuthorBoxProps> = ({
         )}
       </div>
       <div className="mt-16 flex flex-col sm:flex-row justify-center space-y-3 sm:space-y-0 sm:space-x-5">
-        <ButtonSecondary href='/agent'>Show me more </ButtonSecondary>
+        <ButtonSecondary href='/agent'>More </ButtonSecondary>
         <ButtonPrimary href='/signup'>Become an Agent</ButtonPrimary>
       </div>
     </div>

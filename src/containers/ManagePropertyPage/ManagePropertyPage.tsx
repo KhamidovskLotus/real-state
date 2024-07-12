@@ -14,6 +14,7 @@ import { UpdatePropertyAvailabilityPayload } from 'types/payload/update-property
 import { Property } from 'types/property';
 import { toastSuccess } from 'utils/toast';
 import PropertySection from './PropertySection';
+import Loader from 'components/Loader/Loader';
 
 export default function ManagePropertyPage() {
   const [page, setPage] = useState<number>(1);
@@ -70,7 +71,7 @@ export default function ManagePropertyPage() {
     return <></>;
   }
   return (
-    <div
+    isLoading? <Loader />: <div
       className={`nc-ListingStayPage relative overflow-hidden`}
       data-nc-id="ListingStayPage"
     >

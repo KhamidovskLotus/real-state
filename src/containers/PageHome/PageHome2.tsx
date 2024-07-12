@@ -4,7 +4,7 @@ import SectionHero2 from 'components/SectionHero2/SectionHero2';
 import SectionHowItWork from 'components/SectionHowItWork/SectionHowItWork';
 import SectionSliderNewCategories from 'components/SectionSliderNewCategories/SectionSliderNewCategories';
 import { TaxonomyType } from 'data/types';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import HIW1imgDark from 'images/HIW2-1-dark.png';
 import HIW1img from 'images/HIW2-1.png';
 import HIW2imgDark from 'images/HIW2-2-dark.png';
@@ -13,16 +13,16 @@ import HIW3imgDark from 'images/HIW2-3-dark.png';
 import HIW3img from 'images/HIW2-3.png';
 
 import SectionGridFeatureProperty from './SectionGridFeatureProperty';
-import SectionDowloadApp from './SectionDowloadApp';
 import SectionBlock from './SectionBlock';
 import { useQuery } from 'react-query';
 import { PaginationResult } from 'types/pagination';
 import { Property } from 'types/property';
 import { getProperty } from 'api/property';
-import BgGlassmorphism from 'components/BgGlassmorphism/BgGlassmorphism';
 import api from 'api/api';
 import endpoints from 'api/endpoint';
 import { Tree } from 'types/tree';
+import Loader from 'components/Loader/Loader';
+import { FaSpinner } from 'react-icons/fa6';
 
 function PageHome2() {
   const { data: dachaData  } = useQuery<PaginationResult<Property> | null, Error>(
@@ -95,13 +95,18 @@ function PageHome2() {
     }
   ]
 
+
+
+ 
+
+
   return (
-    <div className="nc-PageHome2 relative overflow-hidden">
+    !allData ? <Loader />: <div className="nc-PageHome2 relative overflow-hidden">
       {/* GLASSMOPHIN */}
       {/* <BgGlassmorphism /> */}
       <div className="container relative mb-24 sm:space-y-28 sm:mb-28">
         <SectionHero2 className="sm:block hidden" />
-        
+
         <SectionSliderNewCategories
           className='sm:block hidden'
           categories={DATA}  

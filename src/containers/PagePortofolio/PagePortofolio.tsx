@@ -2,6 +2,7 @@ import api from 'api/api';
 import endpoints from 'api/endpoint';
 import { getAllProperty, getProperty, getPropertyById } from 'api/property';
 import BgGlassmorphism from 'components/BgGlassmorphism/BgGlassmorphism';
+import Loader from 'components/Loader/Loader';
 import SectionGridHasMap from 'containers/PropertyPage/SectionGridHasMap';
 import { debounce } from 'lodash';
 import { FC, useCallback, useEffect, useState } from 'react';
@@ -80,7 +81,7 @@ const PortofolioPage: FC<PortofolioPageProps> = ({
   }
   
   return (
-    <div
+    !dataAll ? <Loader /> :<div
       className={`nc-PortofolioPage relative ${className}`}
       data-nc-id="PortofolioPage"
     >
