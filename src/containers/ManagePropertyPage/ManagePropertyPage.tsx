@@ -71,7 +71,7 @@ export default function ManagePropertyPage() {
     return <></>;
   }
   return (
-    isLoading? <Loader />: <div
+    <div
       className={`nc-ListingStayPage relative overflow-hidden`}
       data-nc-id="ListingStayPage"
     >

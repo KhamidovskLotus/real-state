@@ -101,7 +101,7 @@ function PageHome2() {
 
 
   return (
-    !allData ? <Loader />: <div className="nc-PageHome2 relative overflow-hidden">
+     <div className="nc-PageHome2 relative overflow-hidden">
       {/* GLASSMOPHIN */}
       {/* <BgGlassmorphism /> */}
       <div className="container relative mb-24 sm:space-y-28 sm:mb-28">
