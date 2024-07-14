@@ -1,60 +1,34 @@
+import AutoRefreshWrapper from 'components/AutoRefresh';
 import FooterNav from 'components/FooterNav';
-import AccountBilling from 'containers/AccountPage/AccountBilling';
+import TopMobileNav from 'components/TopMobileNav';
 import AccountPage from 'containers/AccountPage/AccountPage';
 import AccountPass from 'containers/AccountPage/AccountPass';
 import AccountSavelists from 'containers/AccountPage/AccountSavelists';
 import AddNewPropertyPage from 'containers/AddNewPropertyPage/AddNewPropertyPage';
 import AuthorPage from 'containers/AuthorPage/AuthorPage';
-import BlogPage from 'containers/BlogPage/BlogPage';
-import BlogSingle from 'containers/BlogPage/BlogSingle';
-import CheckOutPage from 'containers/CheckOutPage/CheckOutPage';
-import ListingCarMapPage from 'containers/ListingCarPage/ListingCarMapPage';
-import ListingCarPage from 'containers/ListingCarPage/ListingCarPage';
-import ListingCarDetailPage from 'containers/ListingDetailPage/listing-car-detail/ListingCarDetailPage';
-import ListingExperiencesDetailPage from 'containers/ListingDetailPage/listing-experiences-detail/ListingExperiencesDetailPage';
 import ListingStayDetailPage from 'containers/ListingDetailPage/listing-stay-detail/ListingStayDetailPage';
-import ListingExperiencesMapPage from 'containers/ListingExperiencesPage/ListingExperiencesMapPage';
-import ListingExperiencesPage from 'containers/ListingExperiencesPage/ListingExperiencesPage';
-import ListingFlightsPage from 'containers/ListingFlightsPage/ListingFlightsPage';
-import ListingRealEstateMapPage from 'containers/ListingRealEstatePage/ListingRealEstateMapPage';
-import ListingRealEstatePage from 'containers/ListingRealEstatePage/ListingRealEstatePage';
 import ManageInquiriesPage from 'containers/ManageInquiries/ManageInquiriesPage';
 import ManagePropertyPage from 'containers/ManagePropertyPage/ManagePropertyPage';
 import Page404 from 'containers/Page404/Page404';
 import PageAbout from 'containers/PageAbout/PageAbout';
-import PageAddListing1 from 'containers/PageAddListing1/PageAddListing1';
-import PageAddListing10 from 'containers/PageAddListing1/PageAddListing10';
-import PageAddListing2 from 'containers/PageAddListing1/PageAddListing2';
-import PageAddListing3 from 'containers/PageAddListing1/PageAddListing3';
-import PageAddListing4 from 'containers/PageAddListing1/PageAddListing4';
-import PageAddListing5 from 'containers/PageAddListing1/PageAddListing5';
-import PageAddListing6 from 'containers/PageAddListing1/PageAddListing6';
-import PageAddListing7 from 'containers/PageAddListing1/PageAddListing7';
-import PageAddListing8 from 'containers/PageAddListing1/PageAddListing8';
-import PageAddListing9 from 'containers/PageAddListing1/PageAddListing9';
+import PageAgent from 'containers/PageAgent/PageAgent';
 import PageContact from 'containers/PageContact/PageContact';
+import PageForgotPass from 'containers/PageForgotPass/PageForgotPass';
+import PageForgotPassConfirm from 'containers/PageForgotPassConfirm/PageForgotPassConfirm';
 import PageHome2 from 'containers/PageHome/PageHome2';
-import PageHome3 from 'containers/PageHome/PageHome3';
 import PageLogin from 'containers/PageLogin/PageLogin';
+import PortofolioPage from 'containers/PagePortofolio/PagePortofolio';
+import PageSell from 'containers/PageSell/PageSell';
 import PageSignUp from 'containers/PageSignUp/PageSignUp';
-import PageSubcription from 'containers/PageSubcription/PageSubcription';
-import PayPage from 'containers/PayPage/PayPage';
 import ListingStayMapPage from 'containers/PropertyPage/ListingStayMapPage';
 import ListingStayPage from 'containers/PropertyPage/ListingStayPage';
 import SiteHeader from 'containers/SiteHeader';
+import useSaveList from 'hooks/useSavelist';
 import useWindowSize from 'hooks/useWindowResize';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Footer from 'shared/Footer/Footer';
 import ScrollToTop from './ScrollToTop';
 import { Page } from './types';
-import PageForgotPass from 'containers/PageForgotPass/PageForgotPass';
-import PageForgotPassConfirm from 'containers/PageForgotPassConfirm/PageForgotPassConfirm';
-import PortofolioPage from 'containers/PagePortofolio/PagePortofolio';
-import PageStaffLogin from 'containers/PageStaffLogin/PageStaffLogin';
-import PageSell from 'containers/PageSell/PageSell';
-import PageAgent from 'containers/PageAgent/PageAgent';
-import TopMobileNav from 'components/TopMobileNav';
-import useSaveList from 'hooks/useSavelist';
 
 export const pages: Page[] = [
   { path: '/', exact: true, component: PageHome2 },
@@ -150,6 +124,7 @@ const MyRoutes = () => {
 
   return (
     <BrowserRouter>
+     <AutoRefreshWrapper>
       <TopMobileNav />
       {/* {width < 768 && <TopMobileNav />} */}
       <ScrollToTop />
@@ -166,6 +141,7 @@ const MyRoutes = () => {
       <FooterNav />
       {/* {width < 768 && <FooterNav />} */}
       <Footer />
+      </AutoRefreshWrapper>
     </BrowserRouter>
   );
 };

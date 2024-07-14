@@ -105,9 +105,7 @@ function PageHome2() {
       {/* GLASSMOPHIN */}
       {/* <BgGlassmorphism /> */}
       <div className="container relative mb-24 sm:space-y-28 sm:mb-28">
-        <Suspense fallback={<Loader />}>
         <SectionHero2 className="sm:block hidden" />
-        </Suspense>
 
         <SectionSliderNewCategories
           className='sm:block hidden'

@@ -246,7 +246,7 @@ const StayDetailPageContainer: FC<{}> = () => {
 
             {/* This element is to trick the browser into centering the modal contents. */}
             <span
-              className="inline-block h-screen align-middle"
+              className="inline-block h-screen sm:align-middle absolute inset-0"
               aria-hidden="true"
             >
               &#8203;
@@ -260,7 +260,7 @@ const StayDetailPageContainer: FC<{}> = () => {
               leaveFrom="opacity-100 scale-100"
               leaveTo="opacity-0 scale-95"
             >
-              <div className="inline-block py-8 h-screen w-full max-w-4xl">
+              <div className="inline-block py-8 h-screen w-full max-w-4xl ">
                 <div className="inline-flex pb-2 flex-col w-full text-left align-middle transition-all transform overflow-hidden rounded-2xl bg-white dark:bg-neutral-900 dark:border dark:border-neutral-700 dark:text-neutral-100 shadow-xl h-full">
                   <div className="relative flex-shrink-0 px-6 py-4 border-b border-neutral-200 dark:border-neutral-800 text-center">
                     <h3
