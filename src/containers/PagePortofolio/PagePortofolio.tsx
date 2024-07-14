@@ -81,7 +81,7 @@ const PortofolioPage: FC<PortofolioPageProps> = ({
   }
   
   return (
-    !dataAll ? <Loader /> :<div
+    <div
       className={`nc-PortofolioPage relative ${className}`}
       data-nc-id="PortofolioPage"
     >

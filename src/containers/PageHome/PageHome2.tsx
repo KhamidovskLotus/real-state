@@ -4,7 +4,7 @@ import SectionHero2 from 'components/SectionHero2/SectionHero2';
 import SectionHowItWork from 'components/SectionHowItWork/SectionHowItWork';
 import SectionSliderNewCategories from 'components/SectionSliderNewCategories/SectionSliderNewCategories';
 import { TaxonomyType } from 'data/types';
-import { useEffect, useState } from 'react';
+import { Suspense, useEffect, useState } from 'react';
 import HIW1imgDark from 'images/HIW2-1-dark.png';
 import HIW1img from 'images/HIW2-1.png';
 import HIW2imgDark from 'images/HIW2-2-dark.png';
@@ -105,7 +105,9 @@ function PageHome2() {
       {/* GLASSMOPHIN */}
       {/* <BgGlassmorphism /> */}
       <div className="container relative mb-24 sm:space-y-28 sm:mb-28">
+        <Suspense fallback={<Loader />}>
         <SectionHero2 className="sm:block hidden" />
+        </Suspense>
 
         <SectionSliderNewCategories
           className='sm:block hidden'
@@ -139,8 +141,8 @@ function PageHome2() {
           <SectionGridAuthorBox boxCard="box2" />
         </div>
 
-        {allData && treeData &&
-          <SectionBlock treeData={treeData} data={allData}/>
+        {(allData && treeData)?
+          <SectionBlock treeData={treeData} data={allData}/>:<ShimmerEffect ></ShimmerEffect>
         }
 
         <SectionHowItWork
@@ -184,4 +186,14 @@ function PageHome2() {
   );
 }
 
+export const ShimmerEffect = ()=>{
+  return (
+        <div className="flex gap-2">
+          <div className="w-full h-[300px] bg-slate-200 dark:bg-slate-400 animate-pulse rounded-xl"></div>
+          <div className="w-full h-[300px] bg-slate-200 dark:bg-slate-400 animate-pulse rounded-xl"></div>
+          <div className="w-full h-[300px] bg-slate-200 dark:bg-slate-400 animate-pulse rounded-xl"></div>
+          <div className="w-full h-[300px] bg-slate-200 dark:bg-slate-400 animate-pulse rounded-xl"></div>
+        </div>
+  )
+}
 export default PageHome2;

@@ -716,15 +716,15 @@ function Sidebar({ data }: SidebarProps) {
             <span>{getPhone(user)}</span>
           </div> */}
         </div>
-        <ButtonPrimary onClick={() => {
-          setClickedReserve(true)
-        }}>{`+${user.phone}`}</ButtonPrimary>
+        <a href={`tel:${user.phone}`}>
+        <ButtonPrimary>{`+${user.phone}`}</ButtonPrimary>
+        </a>
       </div>
   );
 }
 
 
-function LoadingScreen(){
+export function LoadingScreen(){
   return (
     <div className="flex flex-col gap-2">
       <div className="w-full h-[200px] bg-slate-200 dark:bg-slate-400 animate-pulse rounded-xl"></div>

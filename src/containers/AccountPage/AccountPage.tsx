@@ -19,6 +19,7 @@ import CommonLayout from './CommonLayout';
 import { toTitleCase } from 'utils/strUtil';
 import ButtonSecondary from 'shared/Button/ButtonSecondary';
 import { Link } from 'react-router-dom';
+import { LoadingScreen } from 'containers/ListingDetailPage/listing-stay-detail/ListingStayDetailPage';
 
 export interface AccountPageProps {
   className?: string;
@@ -70,7 +71,7 @@ const AccountPage: FC<AccountPageProps> = ({ className = '' }) => {
     }
   };
   return (
-    <div className={`nc-AccountPage ${className}`} data-nc-id="AccountPage">
+    !user?<LoadingScreen></LoadingScreen>:<div className={`nc-AccountPage ${className}`} data-nc-id="AccountPage">
       <CommonLayout>
         <form
           onSubmit={handleSubmit((e) => {

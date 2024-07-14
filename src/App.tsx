@@ -10,7 +10,6 @@ import 'utils/i18n';
 import store from './states/store';
 import useGoogleTranslateScript from 'hooks/useGoogleTranslate';
 import { enableMapSet } from 'immer';
-import useSaveList from 'hooks/useSavelist';
 
 const queryClient = new QueryClient();
 

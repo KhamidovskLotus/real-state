@@ -2,7 +2,7 @@ import { getProperty } from 'api/property';
 import NewPropertyCardH from 'components/NewPropertyCardH/NewPropertyCardH';
 import { DEMO_STAY_LISTINGS } from 'data/listings';
 import { StayDataType } from 'data/types';
-import { FC, ReactNode } from 'react';
+import { FC, ReactNode, useEffect, useState } from 'react';
 import { useQuery } from 'react-query';
 import { Link } from 'react-router-dom';
 import ButtonPrimary from 'shared/Button/ButtonPrimary';
@@ -11,6 +11,7 @@ import { Property } from 'types/property';
 import HeaderFilter from './HeaderFilter';
 import PropertyCardH from 'components/PropertyCardH/PropertyCardH';
 import PropertyCard from 'components/PropertyCard/PropertyCard';
+import { ShimmerEffect } from './PageHome2';
 
 // OTHER DEMO WILL PASS PROPS
 const DEMO_DATA: StayDataType[] = DEMO_STAY_LISTINGS.filter((_, i) => i < 8);
@@ -32,13 +33,30 @@ const SectionGridFeatureProperty: FC<SectionGridFeaturePropertyProps> = ({
   headingIsCenter,
   tabs = ['New York', 'Tokyo', 'Paris', 'London'],
 }) => {
+  const [isLoading, setIsLoading] = useState(false)
   const renderCard = (property: Property, index: number) => {
     return <PropertyCard  key={index} className="h-full" data={property} />;
   };
-  const { data } = useQuery<PaginationResult<Property> | null, Error>(
+  const { data,refetch } = useQuery<PaginationResult<Property> | null, Error>(
     'property',
-    () => getProperty({})
+    () => getProperty({}),{
+      enabled:false,
+      onSuccess: () => {
+        setIsLoading(false);
+      }
+    }
   );
+
+
+  useEffect(()=>{
+    setIsLoading(true)
+    refetch()
+  },[])
+
+
+  if(!data && isLoading){
+     return <ShimmerEffect />
+  }
 
   return (
     <div className="nc-SectionGridFeatureProperty relative">
