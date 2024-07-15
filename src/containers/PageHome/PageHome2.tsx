@@ -57,15 +57,15 @@ function PageHome2() {
   
   
   const DATA: TaxonomyType[] = [
-    // {
-    //   id: '1',
-    //   href: '/dacha',
-    //   name: 'Dacha',
-    //   taxonomy: 'category',
-    //   count: dachaData?.count,
-    //   thumbnail:
-    //     '/dacha.png',
-    // },
+    {
+      id: '1',
+      href: '/dacha',
+      name: 'Dacha',
+      taxonomy: 'category',
+      count: dachaData?.count,
+      thumbnail:
+        '/dacha.png',
+    },
     {
       id: '222',
       href: '/sport',

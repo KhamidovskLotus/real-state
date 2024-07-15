@@ -204,11 +204,11 @@ export const MOBILE_SIDEBAR_NAVIGATION_LOTUS: NavItemType[] = [
   },
 ]
 export const NAVIGATION_LOTUS: NavItemType[] = [
-  {
-    id: ncNanoId(),
-    href: '/',
-    name: 'Home',
-  },
+  // {
+  //   id: ncNanoId(),
+  //   href: '/',
+  //   name: 'Home',
+  // },
   {
     id: ncNanoId(),
     href: '/buy',
@@ -252,29 +252,29 @@ export const NAVIGATION_LOTUS: NavItemType[] = [
   //     },
   //   ]
   // },
-  {
-    children: [
-    {
-      id: ncNanoId(),
-      href: '/agent',
-      name: 'Find an Agent',
-    },
-    {
-      id: ncNanoId(),
-      href: '/contact',
-      name: 'Contact',
-    },
-    {
-      id: ncNanoId(),
-      href: '/about',
-      name: 'About',
-    }
-  ],
-    type:'dropdown',
-    id: ncNanoId(),
-    href: '/',
-    name: 'More',
-  },
+  // {
+  //   children: [
+  //   {
+  //     id: ncNanoId(),
+  //     href: '/agent',
+  //     name: 'Find an Agent',
+  //   },
+  //   {
+  //     id: ncNanoId(),
+  //     href: '/contact',
+  //     name: 'Contact',
+  //   },
+  //   {
+  //     id: ncNanoId(),
+  //     href: '/about',
+  //     name: 'About',
+  //   }
+  // ],
+  //   type:'dropdown',
+  //   id: ncNanoId(),
+  //   href: '/',
+  //   name: 'More',
+  // },
   // {
   //   id: ncNanoId(),
   //   href: '/contact',

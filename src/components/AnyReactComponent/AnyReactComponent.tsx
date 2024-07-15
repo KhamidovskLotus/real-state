@@ -7,7 +7,7 @@ import PropertyCard from 'components/PropertyCard/PropertyCard';
 import { CarDataType, ExperiencesDataType } from 'data/types';
 import { property } from 'lodash';
 import { HiBuildingOffice, HiOutlineComputerDesktop } from 'react-icons/hi2'
-import {PiBuildingApartmentFill, PiOfficeChairDuotone } from 'react-icons/pi'
+import { PiBuildingApartmentFill, PiOfficeChairDuotone } from 'react-icons/pi'
 import React, { FC, Fragment, useEffect, useState } from 'react';
 import { IoHome } from 'react-icons/io5';
 import { Property, PropertyAvailability } from 'types/property';
@@ -35,8 +35,9 @@ const AnyReactComponent: FC<AnyReactComponentProps> = ({
   isShow2Change  = false
 }) => {
   const [isOpen, setIsOpen] = useState(false);
+
   const getColor = () => {
-    if(!isShow2Change){
+    if (!isShow2Change) {
       return 'bg-green-500';
     }
     if (listing?.property_availability === 'Rented') {
@@ -47,18 +48,20 @@ const AnyReactComponent: FC<AnyReactComponentProps> = ({
     }
     return 'bg-red-500';
   };
+
   const getIcon = () => {
-    const className = 'size-6'
-    if(listing?.property_type === 'House'){
-      return <IoHome className={className} />
+    const iconClassName = 'size-6';
+    if (listing?.property_type === 'House') {
+      return <IoHome className={iconClassName} />;
     }
-    if(listing?.property_type === 'Office'){
-      return <FaComputer    className={className} />
+    if (listing?.property_type === 'Office') {
+      return <FaComputer className={iconClassName} />;
     }
-    if(listing?.property_type === 'Apartment'){
-      return <PiBuildingApartmentFill  className={className} />
+    if (listing?.property_type === 'Apartment') {
+      return <PiBuildingApartmentFill className={iconClassName} />;
     }
-  }
+  };
+
   const getIconContainerClass = (): string => {
     if (listing?.property_availability === 'Rented') {
       return 'border-yellow-800';
@@ -67,9 +70,10 @@ const AnyReactComponent: FC<AnyReactComponentProps> = ({
       return 'border-red-800';
     }
     return 'border-green-800';
-  }
+  };
 
-  const handleOpen = (e: React.MouseEvent<HTMLDivElement, MouseEvent> | React.TouchEvent<HTMLDivElement>) => {
+  const handleToggle = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+    e.stopPropagation(); // Prevent click event from propagating to the parent
     const parentDiv = e.currentTarget.parentElement;
     if (parentDiv) {
       const parentSiblings = parentDiv.parentElement?.children;
@@ -80,33 +84,36 @@ const AnyReactComponent: FC<AnyReactComponentProps> = ({
       }
       parentDiv.style.zIndex = '10';
     }
-    setIsOpen(true);
-  }
+    setIsOpen(!isOpen);
+  };
 
   const handleClose = () => {
-    setIsOpen(false)
-  }
+    setIsOpen(false);
+  };
 
-  return (  
-    <div
-      className={`nc-AnyReactComponent relative  ${className}`}
-      data-nc-id="AnyReactComponent"
-      onMouseEnter={handleOpen}
-      onMouseLeave={handleClose}
-      onTouchStart={handleOpen}
-      onTouchEnd={handleClose}
-    >
-      <span
-        className={`border flex p-1.5 rounded-r-full rounded-bl-full ${getColor()} text-sm font-semibold items-center justify-center text-white min-w-max shadow-lg hover:bg-neutral-900 hover:text-white dark:hover:bg-white dark:hover:text-neutral-900 transition-colors ${
-          isSelected
-            ? 'bg-neutral-900 text-white dark:bg-white dark:text-neutral-900'
-            : ''
-        }`}
+  return (
+    <div className="relative">
+      <div
+        className={`nc-AnyReactComponent relative ${className}`}
+        data-nc-id="AnyReactComponent"
+        onClick={handleToggle}
       >
-        {getIcon()}
-        {/* <IoHome className='size-6' /> */}
-        {/* {listing?.property_type || experiences?.price || car?.price} */}
-      </span>
+        <span
+          className={`border flex p-1.5 rounded-r-full rounded-bl-full ${getColor()} text-sm font-semibold items-center justify-center text-white min-w-max shadow-lg hover:bg-neutral-900 hover:text-white dark:hover:bg-white dark:hover:text-neutral-900 transition-colors ${
+            isSelected ? 'bg-neutral-900 text-white dark:bg-white dark:text-neutral-900' : ''
+          }`}
+        >
+          {getIcon()}
+        </span>
+      </div>
+
+      {isOpen && (
+        <div
+          className="fixed inset-0 bg-black bg-opacity-50 z-40"
+          onClick={handleClose}
+        ></div>
+      )}
+
       <Transition
         show={isOpen}
         as={Fragment}
@@ -119,17 +126,18 @@ const AnyReactComponent: FC<AnyReactComponentProps> = ({
       >
         <div className="absolute z-50 bottom-full pb-3 -left-12 w-[260px] aspect-w-1">
           {listing && (
-            <PropertyCard 
-            isShow2Change={isShow2Change}
-            onChangeAvailability={onChangeAvailability}
-            size="small" data={listing} className="shadow-2xl" />
+            <PropertyCard
+              isShow2Change={isShow2Change}
+              onChangeAvailability={onChangeAvailability}
+              size="small"
+              data={listing}
+              className="shadow-2xl"
+            />
           )}
         </div>
       </Transition>
     </div>
   );
 };
-
-
 
 export default AnyReactComponent;

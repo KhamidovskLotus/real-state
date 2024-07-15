@@ -25,7 +25,7 @@ export interface SectionSliderPropertyProps {
 }
 
 const SectionSliderProperty: FC<SectionSliderPropertyProps> = ({
-  heading = "Heading of sections",
+  heading = "",
   subHeading = "Descriptions for sections",
   className = "",
   itemClassName = "",

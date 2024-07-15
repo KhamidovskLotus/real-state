@@ -29,9 +29,9 @@ const Heading: React.FC<HeadingProps> = ({
           isCenter ? 'text-center w-full max-w-2xl mx-auto' : 'max-w-2xl'
         }
       >
-        <h2 className={`text-left sm:text-center  text-3xl sm:text-3xl md:text-4xl font-semibold ${isUseBorder && 'transition-all dark:bg-neutral-800 bg-neutral-100 px-12 py-7 rounded-2xl sm:rounded-full'} ${childrenClassName}`} {...args}>
+        {/* <h2 className={`text-left sm:text-center  text-3xl sm:text-3xl md:text-4xl font-semibold ${isUseBorder && 'transition-all dark:bg-neutral-800 bg-neutral-100 px-12 py-7 rounded-2xl sm:rounded-full'} ${childrenClassName}`} {...args}>
           {children || `Section Heading`}
-        </h2>
+        </h2> */}
         {desc && (
           <span className="mt-2 md:mt-3 font-normal block text-base sm:text-xl text-neutral-500 dark:text-neutral-400">
             {desc}
