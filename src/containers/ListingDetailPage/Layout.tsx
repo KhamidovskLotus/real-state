@@ -39,7 +39,7 @@ const DetailPagetLayout = ({ children }: { children: ReactNode }) => {
         <div className="relative py-16">
           <BackgroundSection />
           <SectionSliderProperty
-            heading="More Listings You May Like"
+            heading=""
             subHeading="Expand your search with these suggested listings"
             itemPerRow={5}
             sliderStyle="style2"
