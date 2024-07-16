@@ -1,5 +1,5 @@
 import { getProperty } from 'api/property';
-import NewPropertyCardH from 'components/NewPropertyCardH/NewPropertyCardH';
+import PropertyCard from 'components/PropertyCard/PropertyCard';
 import { DEMO_STAY_LISTINGS } from 'data/listings';
 import { StayDataType } from 'data/types';
 import { FC, ReactNode, useEffect, useState } from 'react';
@@ -9,9 +9,7 @@ import ButtonPrimary from 'shared/Button/ButtonPrimary';
 import { PaginationResult } from 'types/pagination';
 import { Property } from 'types/property';
 import HeaderFilter from './HeaderFilter';
-import PropertyCardH from 'components/PropertyCardH/PropertyCardH';
-import PropertyCard from 'components/PropertyCard/PropertyCard';
-import { ShimmerEffect } from './PageHome2';
+import { ShimmerEffect   } from './PageHome2';
 
 // OTHER DEMO WILL PASS PROPS
 const DEMO_DATA: StayDataType[] = DEMO_STAY_LISTINGS.filter((_, i) => i < 8);
@@ -54,12 +52,10 @@ const SectionGridFeatureProperty: FC<SectionGridFeaturePropertyProps> = ({
   },[])
 
 
-  if(!data && isLoading){
-     return <ShimmerEffect />
-  }
+  
 
   return (
-    <div className="nc-SectionGridFeatureProperty relative">
+     <div className="nc-SectionGridFeatureProperty relative">
       <div className="sm:block hidden">
         <HeaderFilter
           tabActive={'New York'}
@@ -69,11 +65,11 @@ const SectionGridFeatureProperty: FC<SectionGridFeaturePropertyProps> = ({
           onClickTab={() => {}}
           />
       </div>
-      <div
+      {data ? <div
         className={`grid  sm:mx-0 mx-3 gap-6 md:gap-8 grid-cols-1 md:grid-cols-4 ${gridClass}`}
       >
         {data?.results.slice(0, 8).map(renderCard)}
-      </div>
+      </div>: <ShimmerEffect  />}
       <Link to="/property" className="flex mt-16 justify-center items-center">
         <ButtonPrimary>More</ButtonPrimary>
       </Link>

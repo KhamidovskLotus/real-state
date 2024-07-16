@@ -71,7 +71,7 @@ const AccountPage: FC<AccountPageProps> = ({ className = '' }) => {
     }
   };
   return (
-    !user?<LoadingScreen></LoadingScreen>:<div className={`nc-AccountPage ${className}`} data-nc-id="AccountPage">
+    user?<div className={`nc-AccountPage ${className}`} data-nc-id="AccountPage">
       <CommonLayout>
         <form
           onSubmit={handleSubmit((e) => {
@@ -179,8 +179,17 @@ const AccountPage: FC<AccountPageProps> = ({ className = '' }) => {
           </div>
         </form>
       </CommonLayout>
-    </div>
+    </div>: <AccountLoadingScreen />
   );
 };
 
 export default AccountPage;
+
+
+export const AccountLoadingScreen = ()=>{
+  return (
+        <div className="flex gap-2 sm:flex-row flex-col">
+          <div className="w-full h-[250px] bg-slate-200 dark:bg-slate-400 animate-pulse rounded-xl"></div>
+        </div>
+  )
+}

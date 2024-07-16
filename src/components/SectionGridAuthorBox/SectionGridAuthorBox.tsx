@@ -2,6 +2,7 @@ import { getAgent } from 'api/agent';
 import CardAuthorBox from 'components/CardAuthorBox/CardAuthorBox';
 import CardAuthorBox2 from 'components/CardAuthorBox2/CardAuthorBox2';
 import Heading from 'components/Heading/Heading';
+import { ShimmerEffect } from 'containers/PageHome/PageHome2';
 import { DEMO_AUTHORS } from 'data/authors';
 import { AuthorType } from 'data/types';
 import { FC } from 'react';
@@ -36,7 +37,7 @@ const SectionGridAuthorBox: FC<SectionGridAuthorBoxProps> = ({
         Featured Professional Independent Agents
       </Heading>
       <span className='text-center mt-2 md:mt-3 font-normal text-base sm:text-lg text-neutral-500 dark:text-neutral-400 sm:block hidden'>Connect with Real Estate Professionals</span>
-      <div className={`mt-8 grid gap-6 md:gap-8 ${gridClassName}`}>
+      {agents ? <div className={`mt-8 grid gap-6 md:gap-8 ${gridClassName}`}>
         {agents?.map((author, index) =>
           boxCard === 'box2' ? (
             <CardAuthorBox2 key={author.id} data={author} />
@@ -48,7 +49,7 @@ const SectionGridAuthorBox: FC<SectionGridAuthorBoxProps> = ({
             />
           )
         )}
-      </div>
+      </div>: <ShimmerEffect />}
       <div className="mt-16 flex flex-col sm:flex-row justify-center space-y-3 sm:space-y-0 sm:space-x-5">
         <ButtonSecondary href='/agent'>More </ButtonSecondary>
         <ButtonPrimary href='/signup'>Become an Agent</ButtonPrimary>

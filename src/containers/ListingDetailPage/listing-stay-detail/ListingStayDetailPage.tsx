@@ -30,6 +30,7 @@ import { toTitleCase } from 'utils/strUtil';
 import { useDispatch, useSelector } from 'react-redux';
 import { StoreState } from 'states/store';
 import { addSaveList, removeSaveList } from 'states/saveListSlice';
+import Draggable from 'react-draggable';
 
 const StayDetailPageContainer: FC<{}> = () => {
   let [isOpenModalAmenities, setIsOpenModalAmenities] = useState(false);
@@ -495,6 +496,7 @@ const StayDetailPageContainer: FC<{}> = () => {
         <div className="w-14 border-b border-neutral-200 dark:border-neutral-700" />
 
         {/* MAP */}
+        <Draggable>
         <div className="aspect-w-5 aspect-h-5 sm:aspect-h-3 ring-1 ring-black/10 rounded-xl z-0">
           <div className="rounded-xl overflow-hidden z-0">
             <iframe
@@ -508,6 +510,7 @@ const StayDetailPageContainer: FC<{}> = () => {
             ></iframe>
           </div>
         </div>
+        </Draggable>
       </div>
     );
   };
@@ -726,7 +729,7 @@ function Sidebar({ data }: SidebarProps) {
 
 export function LoadingScreen(){
   return (
-    <div className="flex flex-col gap-2">
+    <div className="flex flex-col gap-2 py-2">
       <div className="w-full h-[200px] bg-slate-200 dark:bg-slate-400 animate-pulse rounded-xl"></div>
       <div className="w-full h-[400px] bg-slate-200 dark:bg-slate-400 animate-pulse rounded-xl"></div>
       <div className="w-full h-[400px] bg-slate-200 dark:bg-slate-400 animate-pulse rounded-xl"></div>

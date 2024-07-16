@@ -107,12 +107,12 @@ function PageHome2() {
       <div className="container relative mb-24 sm:space-y-28 sm:mb-28">
         <SectionHero2 className="sm:block hidden" />
 
-        <SectionSliderNewCategories
+       <SectionSliderNewCategories
           className='sm:block hidden'
           categories={DATA}  
           categoryCardType="card4"
           itemPerRow={4}
-          heading="Find Your Perfect Vibe"
+          heading="Select Vibe"
           subHeading="Browse properties that match your passion and lifestyle"
           uniqueClassName="PageHome2_s1"
         />
@@ -186,12 +186,14 @@ function PageHome2() {
 
 export const ShimmerEffect = ()=>{
   return (
-        <div className="flex gap-2">
-          <div className="w-full h-[300px] bg-slate-200 dark:bg-slate-400 animate-pulse rounded-xl"></div>
-          <div className="w-full h-[300px] bg-slate-200 dark:bg-slate-400 animate-pulse rounded-xl"></div>
-          <div className="w-full h-[300px] bg-slate-200 dark:bg-slate-400 animate-pulse rounded-xl"></div>
-          <div className="w-full h-[300px] bg-slate-200 dark:bg-slate-400 animate-pulse rounded-xl"></div>
+        <div className="flex gap-2 sm:flex-row flex-col">
+          <div className="w-full h-[250px] bg-slate-200 dark:bg-slate-400 animate-pulse rounded-xl"></div>
+          <div className="w-full h-[250px] bg-slate-200 dark:bg-slate-400 animate-pulse rounded-xl"></div>
+          <div className="w-full h-[250px] bg-slate-200 dark:bg-slate-400 animate-pulse rounded-xl"></div>
+          <div className="w-full h-[250px] bg-slate-200 dark:bg-slate-400 animate-pulse rounded-xl"></div>
         </div>
   )
 }
+
+
 export default PageHome2;

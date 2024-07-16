@@ -15,6 +15,7 @@ import { Property } from 'types/property';
 import { toastSuccess } from 'utils/toast';
 import PropertySection from './PropertySection';
 import Loader from 'components/Loader/Loader';
+import { LoadingScreen } from 'containers/ListingDetailPage/listing-stay-detail/ListingStayDetailPage';
 
 export default function ManagePropertyPage() {
   const [page, setPage] = useState<number>(1);
@@ -67,8 +68,8 @@ export default function ManagePropertyPage() {
     setIsLoading(true)
   }, [page]);
 
-  if (!data) {
-    return <></>;
+  if (!data || isLoading) {
+    return <LoadingScreen></LoadingScreen>;
   }
   return (
     <div

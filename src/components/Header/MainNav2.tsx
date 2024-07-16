@@ -24,8 +24,8 @@ const MainNav2: FC<MainNav2Props> = ({ className = '' }) => {
         <div className="hidden md:flex justify-start  items-center space-x-3 sm:space-x-8 lg:space-x-10">
           <Logo className='w-36' />
         </div>
-        <div className="justify-center hidden md:flex  items-center space-x-3 sm:space-x-8 lg:space-x-10">
-          <ul className="list-none flex gap-2">
+        <div className=" hidden md:flex items-center space-x-3 sm:space-x-8 lg:space-x-10 sm:w-[500px]">
+          <ul className="list-none flex gap-2 justify-between w-full">
             {NAVIGATION_LOTUS.map((item) => (
               <NavigationItem key={item.id} menuItem={item} />
             ))}
