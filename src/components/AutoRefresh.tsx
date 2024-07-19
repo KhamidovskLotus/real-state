@@ -9,13 +9,16 @@ const AutoRefreshWrapper: React.FC<AutoRefreshWrapperProps> = ({ children }) => 
   const location = useLocation();
 
   useEffect(() => {
-    console.log('Current location:', location);
-    if (!window.location.hash) {
-      console.log('No hash found, reloading...');
-      window.location.hash = 'loaded';
+    const pageKey = `hasReloaded_${location.pathname}`;
+    const hasReloaded = sessionStorage.getItem(pageKey);
+
+    if (!hasReloaded) {
+      console.log('No reload flag found for this page, reloading...');
+      sessionStorage.setItem(pageKey, 'true');
       window.location.reload();
     } else {
-      console.log('Hash found:', window.location.hash);
+      console.log('Reload flag found for this page, removing flag.');
+      sessionStorage.removeItem(pageKey);
     }
   }, [location]);
 
