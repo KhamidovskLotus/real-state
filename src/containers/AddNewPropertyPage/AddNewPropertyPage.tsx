@@ -192,7 +192,7 @@ const AddNewPropertyPage: FC<AddNewPropertyPageProps> = ({
   useEffect(() => {
     const newfile:any = files.map((file:any) => ({path:file.name}))
     console.log(">>>>>>>>>> new file >>>>>>>>>>>>", JSON.stringify(newfile))
-    setValue('upload_images', newfile);
+    setValue('upload_images', files);
   }, [files]);
   
   {console.log('>>>>>>>>>>>>>>>>>>>> JSON stringify >>>>>>>>>>>>>>', JSON.stringify(files))}
@@ -410,7 +410,7 @@ const AddNewPropertyPage: FC<AddNewPropertyPageProps> = ({
                   setFiles([...e, ...files]);
                 }}
               />
-              <div className="flex mt-4  gap-5 relative flex-wrap">
+              <div className="flex mt-4 gap-5 relative flex-wrap">
                 {files.map((preview:any, index) => (
                   <div
                     key={index}

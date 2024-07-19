@@ -87,19 +87,7 @@ function FileInput({ onChange }: FileInputProps) {
           });
         };
 
-        const compressImage = async (file: File): Promise<File> => {
-          const options = {
-            maxSizeMB: 1, // Maximum size in MB
-            maxWidthOrHeight: 1920, // Max dimension
-            useWebWorker: true,
-          };
-          try {
-            return await imageCompression(file, options);
-          } catch (error) {
-            toastError("Failed to compress image");
-            return file;
-          }
-        };
+       
 
         const convertedFiles: Array<File | null> = await Promise.all(
           files.map(async (file) => {
@@ -109,6 +97,27 @@ function FileInput({ onChange }: FileInputProps) {
             return file;
           })
         );
+
+        const compressImage = async (file: File): Promise<File> => {
+          const options = {
+            maxSizeMB: 1, // Maximum size in MB
+            maxWidthOrHeight: 1920, // Max dimension
+            useWebWorker: true,
+          };
+          try {
+            const compressedBlob =  await imageCompression(file, options);
+            return new File([compressedBlob], file.name, {
+              type: file.type,
+              lastModified: file.lastModified,
+            });
+
+          } catch (error) {
+            toastError("Failed to compress image");
+            return file;
+          }
+        };
+
+
         const filteredFiles = convertedFiles.filter(
           (file) => file !== null
         ) as File[];
@@ -130,7 +139,8 @@ function FileInput({ onChange }: FileInputProps) {
           })
         );
 
-        const validFiles = compressedFiles;
+        const validFiles:any = compressedFiles;
+        console.log(">>>>>>>>>>>>>>>> valid Files >>>>>>>>>>", validFiles, filteredFiles)
         onChange(validFiles);
         setIsLoading(false);
       },
