@@ -25,11 +25,11 @@ const TopMobileNav = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const user = useSelector((store: StoreState) => store.user.current)
   const NAV: NavItem[] = [
-      // {
-      //   name: "Dacha",
-      //   link: "/dacha",
-      //   icon: BuildingStorefrontIcon,
-      // },
+      {
+        name: "Dacha",
+        link: "/dacha",
+        icon: BuildingStorefrontIcon,
+      },
     {
       name: "Sport",
       link: "/sport",
