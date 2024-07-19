@@ -93,6 +93,8 @@ const AnyReactComponent: FC<AnyReactComponentProps> = ({
 
   return (
     <div className="relative">
+
+
       <div
         className={`nc-AnyReactComponent relative ${className}`}
         data-nc-id="AnyReactComponent"
@@ -106,14 +108,12 @@ const AnyReactComponent: FC<AnyReactComponentProps> = ({
           {getIcon()}
         </span>
       </div>
-
       {isOpen && (
         <div
           className="fixed inset-0 bg-black bg-opacity-50 z-40"
           onClick={handleClose}
         ></div>
       )}
-
       <Transition
         show={isOpen}
         as={Fragment}
@@ -124,6 +124,7 @@ const AnyReactComponent: FC<AnyReactComponentProps> = ({
         leaveFrom="opacity-100"
         leaveTo="opacity-0"
       >
+        
         <div className="absolute z-50 bottom-full pb-3 -left-12 w-[260px] aspect-w-1">
           {listing && (
             <PropertyCard
@@ -132,6 +133,8 @@ const AnyReactComponent: FC<AnyReactComponentProps> = ({
               size="small"
               data={listing}
               className="shadow-2xl"
+              isOpen={isOpen}
+              handleToggle={handleToggle}
             />
           )}
         </div>

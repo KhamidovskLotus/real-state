@@ -190,9 +190,13 @@ const AddNewPropertyPage: FC<AddNewPropertyPageProps> = ({
   });
 
   useEffect(() => {
-    setValue('upload_images', files);
+    const newfile:any = files.map((file:any) => ({path:file.name}))
+    console.log(">>>>>>>>>> new file >>>>>>>>>>>>", JSON.stringify(newfile))
+    setValue('upload_images', newfile);
   }, [files]);
-
+  
+  {console.log('>>>>>>>>>>>>>>>>>>>> JSON stringify >>>>>>>>>>>>>>', JSON.stringify(files))}
+  // {JSON.stringify(files)}
   return (
     <div
       className={`nc-AddNewPropertyPage ${className}`}

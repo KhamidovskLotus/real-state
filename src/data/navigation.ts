@@ -229,29 +229,29 @@ export const NAVIGATION_LOTUS: NavItemType[] = [
   //   href: '/map',
   //   name: 'Map',
   // },
-  // {
-  //   id: ncNanoId(),
-  //   href: '/dacha',
-  //   name: 'Dacha',
-  //   type:'dropdown',
-  //   children: [
-  //     {
-  //       id: ncNanoId(),
-  //       href: '/sport',
-  //       name: 'Sport',
-  //     },
-  //     {
-  //       id: ncNanoId(),
-  //       href: '/eco-friendly',
-  //       name: 'Eco Friendly',
-  //     },
-  //     {
-  //       id: ncNanoId(),
-  //       href: '/millionare',
-  //       name: 'Millionare Life',
-  //     },
-  //   ]
-  // },
+  {
+    id: ncNanoId(),
+    href: '/dacha',
+    name: 'Dacha',
+    type:'dropdown',
+    children: [
+      {
+        id: ncNanoId(),
+        href: '/sport',
+        name: 'Sport',
+      },
+      {
+        id: ncNanoId(),
+        href: '/eco-friendly',
+        name: 'Eco Friendly',
+      },
+      {
+        id: ncNanoId(),
+        href: '/millionare',
+        name: 'Millionare Life',
+      },
+    ]
+  },
   // {
   //   children: [
   //   {

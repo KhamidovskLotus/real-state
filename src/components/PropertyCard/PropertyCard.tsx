@@ -3,12 +3,13 @@ import GallerySlider from 'components/GallerySlider/GallerySlider';
 import { PROPERTY_AVAILABILITY } from 'data/property';
 import { TwMainColor } from 'data/types';
 import { toNumber } from 'lodash';
-import { CSSProperties, FC } from 'react';
+import { CSSProperties, FC, SetStateAction } from 'react';
 import { FiEdit2 } from 'react-icons/fi';
 import { GoTrash } from 'react-icons/go';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import Badge from 'shared/Badge/Badge';
+import ButtonClose from 'shared/ButtonClose/ButtonClose';
 import Select2 from 'shared/Select2/Select2';
 import { addSaveList, removeSaveList } from 'states/saveListSlice';
 import { StoreState } from 'states/store';
@@ -27,24 +28,29 @@ export interface PropertyCardProps {
   onChangeAvailability?: (availability: PropertyAvailability) => void;
   isShowChange?: boolean;
   isShow2Change? : boolean;
+  isOpen?:boolean;
+  handleToggle?:(e:React.MouseEvent<HTMLDivElement, MouseEvent>)=>void;
 }
 
 const PropertyCard: FC<PropertyCardProps> = ({
   isShowChange = false,
   isShow2Change = false,
   style,
+  isOpen = false,
   className = '',
   data,
   isOwner = false,
   size = 'default',
   handleDelete,
   onChangeAvailability,
+  handleToggle
 }) => {
   const dispatch = useDispatch();
   const saveListData = useSelector((store: StoreState) => store.saveList.datas)
   const renderSliderGallery = () => {
     return (
       <div className="rounded-t-2xl relative overflow-hidden w-full">
+        
         <GallerySlider
           uniqueID={`PropertyCard_${data.property_id}`}
           ratioClass="aspect-w-4 aspect-h-3 "
@@ -69,6 +75,7 @@ const PropertyCard: FC<PropertyCardProps> = ({
               </Link>
           </div>
         }
+        
         {!isOwner &&
           <BtnLikeIcon 
           onChange={(e: boolean) => {
@@ -79,6 +86,12 @@ const PropertyCard: FC<PropertyCardProps> = ({
             }
           }} isLiked={saveListData.has(data.property_id)} className="absolute right-3 top-3 z-[1]" />
          }
+         {(isOpen && handleToggle) && <div className='absolute left-2 top-3 z-[1]'>
+          <ButtonClose
+              onClick={handleToggle as ()=>void}
+              className="bg-white  shadow-lg rounded-xl w-10 h-10"
+            />
+            </div>}
         {/* {data. && <SaleOffBadge className="absolute left-3 top-3" />} */}
       </div>
     );

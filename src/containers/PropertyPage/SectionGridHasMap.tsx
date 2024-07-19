@@ -74,7 +74,7 @@ const SectionGridHasMap: FC<SectionGridHasMapProps> = ({ isLoading = false, isOw
                 onMouseEnter={() => setCurrentHoverID((_) => item.property_id)}
                 onMouseLeave={() => setCurrentHoverID((_) => -1)}
               >
-                <PropertyCard isOwner={isOwner}  data={item} />
+                <PropertyCard isOwner={isOwner}  data={item}/>
               </div>
             ))}
             {isLoading && <>
@@ -158,14 +158,13 @@ const SectionGridHasMap: FC<SectionGridHasMapProps> = ({ isLoading = false, isOw
                 </>
             }
             </div>
-
             <GoogleMap
               options={{gestureHandling: 'greedy'}}
               defaultZoom={12}
               defaultCenter={getDefaultCenter()}
               apiKey={process.env.REACT_APP_GOOGLE_MAP_API}
             >
-              {!isLoading && filteredAllData.map((item, index) => (
+              {/* {!isLoading && filteredAllData.map((item, index) => (
                 <PropertyPoint
                 isShow2Change={isShow2Change}
                 onChangeAvailability={(e) => {
@@ -176,7 +175,7 @@ const SectionGridHasMap: FC<SectionGridHasMapProps> = ({ isLoading = false, isOw
                 lat={parseFloat(item.latitude)}
                 lng={parseFloat(item.longitude)}
                 />
-              ))}
+              ))} */}
               {!isLoading && data.results.map((item) => (
                 <AnyReactComponent
                   isShow2Change={isShow2Change}
@@ -220,7 +219,7 @@ function PropertyPoint({lat, lng, data, isShow2Change, onChangeAvailability}: {l
   return <div 
   onMouseEnter={onMouseEnter}
   onMouseLeave={() => setIsOpen(false)}
-  className='cursor-pointer bg-green-500 hover:bg-green-600 transition-all size-3 border border-white rounded-full'>
+  className='cursor-pointer bg-green-500 hover:bg-green-600 transition-all size-3 border border-white rounded-full focus:bg-black'>
       <Transition
         show={isOpen}
         as={Fragment}
@@ -232,10 +231,11 @@ function PropertyPoint({lat, lng, data, isShow2Change, onChangeAvailability}: {l
         leaveTo="opacity-0"
       >
         <div className="absolute z-50 bottom-full pb-3 -left-12 w-[260px] aspect-w-1">
-          <PropertyCard
+          
+          {/* <PropertyCard
           onChangeAvailability={onChangeAvailability}
           isShow2Change={isShow2Change}
-          size="small" data={data} className="shadow-2xl" />
+          size="small" data={data} className="shadow-2xl" isOpen={isOpen}/> */}
         </div>
       </Transition>
 

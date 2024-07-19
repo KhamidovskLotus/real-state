@@ -69,7 +69,23 @@ export default function ManagePropertyPage() {
   }, [page]);
 
   if (!data || isLoading) {
-    return <LoadingScreen></LoadingScreen>;
+    return (
+    <div className='sm:px-24 px-4 sm:py-20 py-10 bg-slate-100'>
+    <div className='w-full h-[100px] bg-slate-200 dark:bg-slate-400 animate-pulse sm:py-12'></div>
+    <div className="flex sm:flex-row flex-col gap-2 py-2">
+      <div className="w-full h-[400px] bg-slate-200 dark:bg-slate-400 animate-pulse rounded-xl"></div>
+      <div className="w-full h-[400px] bg-slate-200 dark:bg-slate-400 animate-pulse rounded-xl"></div>
+      <div className="w-full h-[400px] bg-slate-200 dark:bg-slate-400 animate-pulse rounded-xl"></div>
+      <div className="w-full h-[400px] bg-slate-200 dark:bg-slate-400 animate-pulse rounded-xl"></div>
+    </div>
+    <div className="flex sm:flex-row flex-col gap-2 py-2">
+      <div className="w-full h-[400px] bg-slate-200 dark:bg-slate-400 animate-pulse rounded-xl"></div>
+      <div className="w-full h-[400px] bg-slate-200 dark:bg-slate-400 animate-pulse rounded-xl"></div>
+      <div className="w-full h-[400px] bg-slate-200 dark:bg-slate-400 animate-pulse rounded-xl"></div>
+      <div className="w-full h-[400px] bg-slate-200 dark:bg-slate-400 animate-pulse rounded-xl"></div>
+    </div>
+    </div>
+    );
   }
   return (
     <div
