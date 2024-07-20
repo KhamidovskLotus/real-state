@@ -29,7 +29,7 @@ const SectionHero: FC<SectionHeroProps> = ({
           <span className="block text-base xl:text-lg text-neutral-6000 dark:text-neutral-400">
             {subHeading}
           </span>
-          {!!btnText && <ButtonPrimary href="/signup">{btnText}</ButtonPrimary>}
+          {!!btnText && <ButtonPrimary href="/login">{btnText}</ButtonPrimary>}
         </div>
         <div className="flex-grow">
           <img className="w-full" src={rightImg} alt="" />

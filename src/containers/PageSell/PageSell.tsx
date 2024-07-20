@@ -87,7 +87,7 @@ export default function PageSell() {
           <SectionHero
             rightImg={rightImg}
             heading={`Sell your Best Property ✨`}
-            btnText="Signup"
+            btnText="Log in"
             subHeading={'You need to signup, before you can sell your property.'}
             />
         </div>
