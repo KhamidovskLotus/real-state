@@ -191,11 +191,9 @@ const AddNewPropertyPage: FC<AddNewPropertyPageProps> = ({
 
   useEffect(() => {
     const newfile:any = files.map((file:any) => ({path:file.name}))
-    console.log(">>>>>>>>>> new file >>>>>>>>>>>>", JSON.stringify(newfile))
     setValue('upload_images', files);
   }, [files]);
   
-  {console.log('>>>>>>>>>>>>>>>>>>>> JSON stringify >>>>>>>>>>>>>>', JSON.stringify(files))}
   // {JSON.stringify(files)}
   return (
     <div
@@ -438,7 +436,7 @@ const AddNewPropertyPage: FC<AddNewPropertyPageProps> = ({
                     <NcImage
                       className="rounded-md overflow-hidden object-cover "
                       src={
-                         typeof preview === 'object' ? URL.createObjectURL(preview) :preview
+                         existedProperty ? preview.image : typeof preview === 'object' ? URL.createObjectURL(preview) :preview
                       }
                       alt={`Preview Images`}
                     />
