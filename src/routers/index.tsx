@@ -136,7 +136,7 @@ const MyRoutes = () => {
             <Route
               key={path}
               element={
-                path === "/property/:id" ? (
+                path === "/property/update/:id" ? (
                   <Component />
                 ) : (
                   <AutoRefreshWrapper>

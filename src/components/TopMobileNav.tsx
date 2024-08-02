@@ -4,6 +4,7 @@ import {
   BanknotesIcon,
   TrophyIcon,
   BuildingStorefrontIcon,
+  HomeModernIcon,
   UserIcon
 } from "@heroicons/react/24/outline";
 import React, { useEffect, useRef } from "react";
@@ -31,23 +32,24 @@ const TopMobileNav = () => {
         link: "/dacha",
         icon: BuildingStorefrontIcon,
       },
+    // {
+    //   name: "Sport",
+    //   link: "/sport",
+    //   icon: TrophyIcon,
+    // },
     {
-      name: "Sport",
-      link: "/sport",
-      icon: TrophyIcon,
+      name: "Residence and Office",
+      link: "/millionare",
+      icon: HomeModernIcon,
     },
     {
       name: "Eco Friendly",
       link: "/eco-friendly",
       icon: GlobeAmericasIcon,
     },
+    
     {
-      name: "Millionare",
-      link: "/millionare",
-      icon: BanknotesIcon,
-    },
-    {
-      name: "Agent",
+      name: "Agents",
       link: "/agent",
       icon: UserIcon,
     },

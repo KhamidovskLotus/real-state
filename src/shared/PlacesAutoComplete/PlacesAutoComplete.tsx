@@ -41,6 +41,7 @@ export default function PlacesAutoComplete({
     clearSuggestions();
     const result = await getGeocode({ address });
     const { lat, lng } = await getLatLng(result[0]);
+    console.log(">>>>>>>>>>.... address >>>>>>>>.", address, result, lat, lng)
 
     if (onChangePosition) {
       onChangePosition({ lat, lng, address });

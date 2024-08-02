@@ -216,9 +216,11 @@ const AddNewPropertyPage: FC<AddNewPropertyPageProps> = ({
                 state = component.short_name; 
               }
             }
+            console.log(">>>>>>>>>>> result >>>>>>>>>>>>", result)
             setValue('city', city)
             setValue('state', state)
             const formattedAddress = result.formatted_address.split(' ').filter((v: string) => !v.includes('+')).join(' ');
+            console.log("formatted Address >>>>>>>>>>>>>>>", formattedAddress);
             setValue('property_address', formattedAddress)
             setLocation(formattedAddress);
             setOpenMapModal(false)
