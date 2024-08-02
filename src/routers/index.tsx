@@ -124,25 +124,37 @@ const MyRoutes = () => {
 
   return (
     <BrowserRouter>
-     <AutoRefreshWrapper>
-      <TopMobileNav />
-      {/* {width < 768 && <TopMobileNav />} */}
-      <ScrollToTop />
-      <SiteHeader />
-        <div className="min-h-[60vh]">
-          <Routes>
-            {pages.map(({ component, path }) => {
-              const Component = component;
-              return <Route key={path} element={<Component />} path={path} />;
-            })}
-            <Route element={<Page404 />} />
-          </Routes>
-        </div>
-      <FooterNav />
-      {/* {width < 768 && <FooterNav />} */}
-      <Footer />
-      </AutoRefreshWrapper>
-    </BrowserRouter>
+    <TopMobileNav />
+    {/* {width < 768 && <TopMobileNav />} */}
+    <ScrollToTop />
+    <SiteHeader />
+    <div className="min-h-[60vh]">
+      <Routes>
+        {pages.map(({ component, path }) => {
+          const Component = component;
+          return (
+            <Route
+              key={path}
+              element={
+                path === "/property/:id" ? (
+                  <Component />
+                ) : (
+                  <AutoRefreshWrapper>
+                    <Component />
+                  </AutoRefreshWrapper>
+                )
+              }
+              path={path}
+            />
+          );
+        })}
+        <Route element={<Page404 />} />
+      </Routes>
+    </div>
+    <FooterNav />
+    {/* {width < 768 && <FooterNav />} */}
+    <Footer />
+  </BrowserRouter>
   );
 };
 

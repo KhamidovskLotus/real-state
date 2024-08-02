@@ -82,15 +82,30 @@ const GoogleMapChooser: React.FC<GoogleMapChooserProps> = ({
         <span className="mb-2.5 text-neutral-800 dark:text-neutral-200">
           Search your place
         </span>
+      <div className='sm:flex block justify-between gap-4 items-center'>
+
         <PlacesAutoComplete
-          className="mb-2"
+          className="mb-2 w-full"
           onChangePosition={({ lat, lng }) => {
             getAddressFromCoordinates(lat , lng)
             setMarkerPosition({ lat, lng });
             onChangePosition && onChangePosition({ lat, lng });
           }}
         />
+        <ButtonPrimary
+        disabled={!result}
+        onClick={() => {
+          if(onSave){
+            onSave(markerPosition, result)
+          }
+        }}
+        className='w-fit h-[38px] mb-2'>
+          Save
+        </ButtonPrimary>
+        </div>
       </label>
+      
+      
       <div className="h-full rounded-3xl overflow-hidden">
         <GoogleMap
           mapContainerStyle={containerStyle}
@@ -101,16 +116,7 @@ const GoogleMapChooser: React.FC<GoogleMapChooserProps> = ({
           {markerPosition && <Marker position={markerPosition} />}
         </GoogleMap>
       </div>
-        <ButtonPrimary
-        disabled={!result}
-        onClick={() => {
-          if(onSave){
-            onSave(markerPosition, result)
-          }
-        }}
-        className='w-full mt-3'>
-          Save
-        </ButtonPrimary>
+       
     </div>
   );
 };

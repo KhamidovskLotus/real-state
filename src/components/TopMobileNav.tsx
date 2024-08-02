@@ -3,7 +3,8 @@ import {
   GlobeAmericasIcon,
   BanknotesIcon,
   TrophyIcon,
-  BuildingStorefrontIcon
+  BuildingStorefrontIcon,
+  UserIcon
 } from "@heroicons/react/24/outline";
 import React, { useEffect, useRef } from "react";
 import { useSelector } from "react-redux";
@@ -44,6 +45,11 @@ const TopMobileNav = () => {
       name: "Millionare",
       link: "/millionare",
       icon: BanknotesIcon,
+    },
+    {
+      name: "Agent",
+      link: "/agent",
+      icon: UserIcon,
     },
   ];
 
