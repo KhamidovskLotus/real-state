@@ -93,7 +93,7 @@ const FooterNav = () => {
     <div
       ref={containerRef}
       className={`md:hidden block FooterNav bg-white dark:bg-neutral-800 fixed top-auto bottom-0 inset-x-0 z-30 border-t border-neutral-300 dark:border-neutral-700 
-      transition-transform duration-300 ease-in-out ${isIOS ? 'pb-6' : 'pb-2'}`}
+      transition-transform duration-300 ease-in-out ${isIOS ? 'pb-8' : 'pb-2'}`}
     >
       <div className="w-full max-w-lg flex  mx-auto text-sm text-center ">
         {/* MENU */}
