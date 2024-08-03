@@ -39,7 +39,7 @@ const TopMobileNav = () => {
     // },
     {
       name: "Residence and Office",
-      link: "/millionare",
+      link: "/buy",
       icon: HomeModernIcon,
     },
     {

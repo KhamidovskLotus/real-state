@@ -49,7 +49,7 @@ const PropertyCard: FC<PropertyCardProps> = ({
   const saveListData = useSelector((store: StoreState) => store.saveList.datas)
   const renderSliderGallery = () => {
     return (
-      <div className="rounded-t-2xl relative overflow-hidden w-full">
+      <div className="rounded-t-2xl w-full z-50">
         
         <GallerySlider
           uniqueID={`PropertyCard_${data.property_id}`}
@@ -58,7 +58,7 @@ const PropertyCard: FC<PropertyCardProps> = ({
           href={'/property/' + data.property_id}
         />
         {isOwner && 
-            <div className="absolute top-2 right-2 center gap-2 text-white">
+            <div className="absolute top-2 right-2 center gap-2 text-white z-50">
               <div className="cursor-pointer rounded-full transition-all  bg-neutral-800 hover:bg-opacity-60 bg-opacity-30 p-2">
                 <GoTrash
                   className="size-[18px]"
@@ -243,7 +243,7 @@ const PropertyCard: FC<PropertyCardProps> = ({
   return (
     <div
       style={style}
-      className={`relative nc-PropertyCard group  bg-white dark:bg-neutral-900 border border-neutral-100 dark:border-neutral-800 rounded-2xl will-change-transform hover:shadow-xl transition-shadow ${className}`}
+      className={`relative nc-PropertyCard group  bg-white dark:bg-neutral-900 border border-neutral-100 dark:border-neutral-800 rounded-2xl will-change-transform hover:shadow-xl transition-shadow z-50 ${className}`}
       data-nc-id="PropertyCard"
     >
       {renderSliderGallery()}

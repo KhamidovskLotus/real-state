@@ -57,6 +57,9 @@ const SectionGridHasMap: FC<SectionGridHasMapProps> = ({ isLoading = false, isOw
     };
   };
 
+
+  console.log
+
   return (
     <div className="">
       <div className="relative flex min-h-screen">

@@ -6,12 +6,12 @@ import ExperiencesCard from 'components/ExperiencesCard/ExperiencesCard';
 import PropertyCard from 'components/PropertyCard/PropertyCard';
 import { CarDataType, ExperiencesDataType } from 'data/types';
 import { property } from 'lodash';
-import { HiBuildingOffice, HiOutlineComputerDesktop } from 'react-icons/hi2'
-import { PiBuildingApartmentFill, PiOfficeChairDuotone } from 'react-icons/pi'
+import { HiBuildingOffice, HiOutlineComputerDesktop } from 'react-icons/hi2';
+import { PiBuildingApartmentFill, PiOfficeChairDuotone } from 'react-icons/pi';
 import React, { FC, Fragment, useEffect, useState } from 'react';
 import { IoHome } from 'react-icons/io5';
 import { Property, PropertyAvailability } from 'types/property';
-import { FaComputer } from 'react-icons/fa6'
+import { FaComputer } from 'react-icons/fa6';
 
 export interface AnyReactComponentProps {
   className?: string;
@@ -32,8 +32,10 @@ const AnyReactComponent: FC<AnyReactComponentProps> = ({
   experiences,
   isSelected,
   onChangeAvailability,
-  isShow2Change  = false
+  isShow2Change = false,
 }) => {
+
+  console.log(">>>>>>>>>>>>>>>> list of items >>>>>>>>>>>", listing)
   const [isOpen, setIsOpen] = useState(false);
 
   const getColor = () => {
@@ -50,7 +52,7 @@ const AnyReactComponent: FC<AnyReactComponentProps> = ({
   };
 
   const getIcon = () => {
-    const iconClassName = 'size-6';
+    const iconClassName = 'size-6 z-10';
     if (listing?.property_type === 'House') {
       return <IoHome className={iconClassName} />;
     }
@@ -93,15 +95,13 @@ const AnyReactComponent: FC<AnyReactComponentProps> = ({
 
   return (
     <div className="relative">
-
-
       <div
-        className={`nc-AnyReactComponent relative ${className}`}
+        className={`nc-AnyReactComponent relative z-20 ${className}`}
         data-nc-id="AnyReactComponent"
         onClick={handleToggle}
       >
         <span
-          className={`border flex p-1.5 rounded-r-full rounded-bl-full ${getColor()} text-sm font-semibold items-center justify-center text-white min-w-max shadow-lg hover:bg-neutral-900 hover:text-white dark:hover:bg-white dark:hover:text-neutral-900 transition-colors ${
+          className={`border flex p-1.5 rounded-r-full rounded-bl-full z-20 ${getColor()} text-sm font-semibold items-center justify-center text-white min-w-max shadow-lg hover:bg-neutral-900 hover:text-white dark:hover:bg-white dark:hover:text-neutral-900 transition-colors ${
             isSelected ? 'bg-neutral-900 text-white dark:bg-white dark:text-neutral-900' : ''
           }`}
         >
@@ -110,7 +110,7 @@ const AnyReactComponent: FC<AnyReactComponentProps> = ({
       </div>
       {isOpen && (
         <div
-          className="fixed inset-0 bg-black bg-opacity-50 z-40"
+          className="fixed inset-0 bg-black bg-opacity-50 z-30"
           onClick={handleClose}
         ></div>
       )}
@@ -124,8 +124,7 @@ const AnyReactComponent: FC<AnyReactComponentProps> = ({
         leaveFrom="opacity-100"
         leaveTo="opacity-0"
       >
-        
-        <div className="absolute z-50 bottom-full pb-3 -left-12 w-[260px] aspect-w-1">
+        <div className="absolute bottom-full pb-3 -left-12 w-[260px] aspect-w-1">
           {listing && (
             <PropertyCard
               isShow2Change={isShow2Change}
