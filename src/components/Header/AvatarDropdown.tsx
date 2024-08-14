@@ -31,7 +31,7 @@ export const solutions = [
   //   icon: ChatBubbleBottomCenterTextIcon,
   // },
   {
-    name: 'Portofolio',
+    name: 'Portofolio Map',
     href: '/portofolio',
     icon: AcademicCapIcon,
   },
