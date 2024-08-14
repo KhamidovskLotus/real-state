@@ -4,7 +4,8 @@ import {
   ChatBubbleBottomCenterTextIcon,
   HomeIcon,
   UserCircleIcon,
-  AcademicCapIcon
+  AcademicCapIcon,
+  MapIcon
 } from '@heroicons/react/24/outline';
 import api from 'api/api';
 import endpoints from 'api/endpoint';
@@ -33,7 +34,7 @@ export const solutions = [
   {
     name: 'Portofolio Map',
     href: '/portofolio',
-    icon: AcademicCapIcon,
+    icon: MapIcon,
   },
   {
     name: 'My Properties',
