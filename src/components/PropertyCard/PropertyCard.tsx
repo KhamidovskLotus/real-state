@@ -172,16 +172,20 @@ const PropertyCard: FC<PropertyCardProps> = ({
             </span>
           </div>
           {/* <div className="center w-0.5">·</div> */}
+          {data.area_sqft > 0 && (
           <div className="text-sm sm:text-xs font-semibold center dark:text-neutral-400 text-neutral-600">
             {data.area_sqft}
             <span className="ml-1 text-sm sm:text-xs flex items-center text-neutral-500 dark:text-neutral-400 font-normal">
               M <sup>2</sup>
             </span>
           </div>
+        )}
           {/* <div className="center w-0.5">·</div> */}
+          {data.built_year > 0 && (
           <div className="text-sm sm:text-xs font-semibold center dark:text-neutral-400 text-neutral-600">
             {data.built_year}
           </div>
+        )}
         </div>
         {isShowChange && (
       
