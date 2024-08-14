@@ -181,9 +181,6 @@ const PropertyCard: FC<PropertyCardProps> = ({
           {/* <div className="center w-0.5">·</div> */}
           <div className="text-sm sm:text-xs font-semibold center dark:text-neutral-400 text-neutral-600">
             {data.built_year}
-            <span className="ml-1 text-sm sm:text-xs text-neutral-500 dark:text-neutral-400 font-normal">
-              <i className='text-[1.1rem] las la-calendar'></i>
-            </span>
           </div>
         </div>
         {isShowChange && (
