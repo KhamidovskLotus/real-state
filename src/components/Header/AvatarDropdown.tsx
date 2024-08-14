@@ -32,7 +32,7 @@ export const solutions = [
   //   icon: ChatBubbleBottomCenterTextIcon,
   // },
   {
-    name: 'Portofolio Map',
+    name: 'View Map',
     href: '/portofolio',
     icon: MapIcon,
   },
