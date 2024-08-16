@@ -100,11 +100,11 @@ const SectionGridHasMap: FC<SectionGridHasMapProps> = ({ isLoading = false, isOw
 
         {!showFullMapFixed && (
           <div
-            className="flex xl:hidden items-center justify-center fixed bottom-20.5 left-1/2 transform -translate-x-1/2 px-6 py-2 bg-neutral-900 text-white shadow-2xl rounded-full z-30  space-x-3 text-sm cursor-pointer"
+            className="flex xl:hidden items-center justify-center fixed bottom-20 left-1/2 transform -translate-x-1/2 px-4 py-1 bg-neutral-900 text-white shadow-2xl rounded-full z-30  space-x-3 text-sm cursor-pointer"
             onClick={() => setShowFullMapFixed(true)}
           >
             <i className="text-lg las la-map"></i>
-            <span></span>
+            
           </div>
         )}
 
